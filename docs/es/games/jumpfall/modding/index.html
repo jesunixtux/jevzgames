@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding de JumpFall - Herramientas oficiales .jfmod</title>
+    <meta name="description" content="Resumen oficial de los paquetes .jfmod basados en datos, el Mod Manager integrado y el SDK multiplataforma de JumpFall.">
+    <link rel="canonical" href="https://jevzgames.com/es/games/jumpfall/modding/">
+    <link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/modding/">
+    <link rel="alternate" hreflang="es" href="https://jevzgames.com/es/games/jumpfall/modding/">
+    <link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/jumpfall/modding/">
+    <meta property="og:site_name" content="JEVZGames">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="Modding de JumpFall - Herramientas oficiales .jfmod">
+    <meta property="og:description" content="Resumen oficial de los paquetes .jfmod basados en datos, el Mod Manager integrado y el SDK multiplataforma de JumpFall.">
+    <meta property="og:url" content="https://jevzgames.com/es/games/jumpfall/modding/">
+    <meta property="og:image" content="https://jevzgames.com/images/jumpfall/Screenshot-game/12-level-editor.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Modding de JumpFall - Herramientas oficiales .jfmod">
+    <meta name="twitter:description" content="Resumen oficial de los paquetes .jfmod basados en datos, el Mod Manager integrado y el SDK multiplataforma de JumpFall.">
+    <meta name="twitter:image" content="https://jevzgames.com/images/jumpfall/Screenshot-game/12-level-editor.jpg">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JEVZGames",
+    "url": "https://jevzgames.com/",
+    "description": "JEVZGames es un proyecto independiente que desarrolla JumpFall, su editor de niveles y herramientas para creadores."
+}</script>
+    <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "JumpFall",
+    "url": "https://jevzgames.com/es/games/jumpfall/",
+    "inLanguage": "es",
+    "description": "JumpFall es un videojuego indie de plataformas 2D desarrollado por JEVZGames, con editor de niveles, mapas comunitarios, mods seguros basados en datos e integración con Steam.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "JEVZGames",
+        "url": "https://jevzgames.com/"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "JEVZGames",
+        "url": "https://jevzgames.com/"
+    },
+    "applicationCategory": "Game",
+    "genre": [
+        "Juego de plataformas",
+        "Juego indie"
+    ]
+}</script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="skip-link" href="#main">Saltar al contenido</a>
+        <nav class="nav-shell" aria-label="Navegación principal">
+            <a class="brand-link" href="/es/" aria-label="Inicio de JEVZGames">
+                <span class="brand-mark">JG</span>
+                <span class="brand-text">JEVZGames</span>
+            </a>
+            <div class="nav-actions">
+                <div class="nav-links">
+                                            <a class="" href="/es/">Inicio</a>
+                                            <a class="" href="/es/games/">Juegos</a>
+                                            <a class="is-active" href="/es/games/jumpfall/">JumpFall</a>
+                                            <a class="" href="/es/press/jumpfall/">Prensa</a>
+                                            <a class="" href="/es/about/">Acerca de</a>
+                                            <a class="" href="/es/support/">Soporte</a>
+                                    </div>
+                <div class="language-switcher" aria-label="Selector de idioma">
+                    <a class="" href="/games/jumpfall/modding/" hreflang="en" lang="en">EN</a>
+                    <a class="is-active" href="/es/games/jumpfall/modding/" hreflang="es" lang="es">ES</a>
+                </div>
+                <a class="nav-steam" href="https://store.steampowered.com/app/4053230/JumpFall/" target="_blank" rel="noopener noreferrer">Steam</a>
+            </div>
+        </nav>
+    </header>
+<main id="main" class="page">
+    <div class="breadcrumb"><a href="/es/games/jumpfall/">JumpFall</a> / Modding</div>
+    <section class="hero">
+        <div>
+            <span class="eyebrow">Herramientas para creadores en PC</span>
+            <h1>Modding de JumpFall</h1>
+            <p class="lead">JumpFall Modding 1.0 carga paquetes de datos .jfmod validados como una capa reversible sobre el juego base sin reemplazar el ejecutable.</p>
+            <div class="actions">
+                <a class="button primary" href="https://github.com/jesunixtux/jumpfall-SDK" target="_blank" rel="noopener noreferrer">Abrir JumpFall SDK</a>
+                <a class="button secondary" href="/es/games/jumpfall/level-editor/">Editor de Niveles</a>
+                <a class="button secondary" href="/es/games/jumpfall/community-maps/">Mapas Comunitarios</a>
+            </div>
+        </div>
+        <div class="hero-media"><img src="/images/jumpfall/Screenshot-game/12-level-editor.jpg" alt="Interfaz de herramientas para creadores de JumpFall"></div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2>Qué puede hacer .jfmod</h2>
+            <p>El runtime actual expone capacidades de contenido controladas en lugar de código ejecutable arbitrario.</p>
+        </div>
+        <div class="grid">
+            <article class="card">
+                <h3>Mapas y piezas del editor</h3>
+                <p>Registra mapas .jfue y piezas 2D seguras derivadas de arquetipos aprobados como plataformas, checkpoints, placas de impulso y ascensores.</p>
+            </article>
+            <article class="card">
+                <h3>Visuales, audio y localización</h3>
+                <p>Usa imágenes validadas, videos de mapa sin audio, audio WAV/OGG y archivos de localización dentro de límites documentados.</p>
+            </article>
+            <article class="card">
+                <h3>Extensiones controladas</h3>
+                <p>Aplica parches de escena, capas limitadas de menú y ajustes acotados del jugador mientras dependencias, conflictos y prioridades mantienen un perfil determinista.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="grid two">
+            <article class="card">
+                <h2>Instalar y administrar</h2>
+                <ol>
+                    <li>Coloca el .jfmod en Documents/jumpfall/mods/packages.</li>
+                    <li>Abre JumpFall en PC y entra al Mod Manager.</li>
+                    <li>Actualiza la lista y revisa los diagnósticos de validación.</li>
+                    <li>Elige el perfil pendiente y reinicia para aplicarlo.</li>
+                </ol>
+                <p>Los parámetros de modo seguro pueden desactivar mods sin borrar paquetes ni el perfil guardado.</p>
+            </article>
+            <article class="card notice">
+                <h2>Límite de seguridad</h2>
+                <p>.jfmod no carga DLL externas, assemblies C#, código nativo ni AssetBundles arbitrarios. Los paquetes se revisan por rutas inseguras, enlaces simbólicos, archivos excesivos, capacidades no declaradas y dependencias inválidas antes de activarse.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="grid two">
+            <article class="card">
+                <h2>Lua de mapas es separado</h2>
+                <p>Los eventos Lua restringidos pertenecen a paquetes de mapas personalizados y se ejecutan mediante la API de mapas. Se documentan en el flujo del Level Editor.</p>
+                <p>Lua está deshabilitado actualmente dentro de paquetes .jfmod. Un .jfmod que contenga archivos Lua se rechaza en lugar de ejecutarlos.</p>
+            </article>
+            <article class="card">
+                <h2>Plataformas y estado</h2>
+                <p>El runtime .jfmod está disponible en builds de Windows, Linux y macOS. Android e iOS no descubren ni ejecutan paquetes .jfmod.</p>
+                <p>El gestor integrado es funcional, pero sigue en pulido para navegación con mando, reinicio en macOS y distribución pública más amplia.</p>
+            </article>
+        </div>
+    </section>
+</main>
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <strong>JEVZGames</strong>
+                <p>Proyecto indie que desarrolla JumpFall, niveles creados por jugadores y herramientas seguras para creadores.</p>
+            </div>
+            <nav aria-label="Navegación del pie de página">
+                <a href="/es/games/jumpfall/">JumpFall</a>
+                <a href="/es/games/jumpfall/level-editor/">Editor de Niveles</a>
+                <a href="/es/games/jumpfall/community-maps/">Mapas Comunitarios</a>
+                <a href="/es/games/jumpfall/modding/">Modding</a>
+                <a href="/es/support/">Soporte</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 JEVZGames.</span>
+            <span>JumpFall es un videojuego indie desarrollado por JEVZGames.</span>
+        </div>
+    </footer>
+</body>
+</html>

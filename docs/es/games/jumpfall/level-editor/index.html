@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editor de Niveles de JumpFall - JEVZGames</title>
+    <meta name="description" content="Resumen oficial del Editor de Niveles de JumpFall: crea, prueba y compila mapas con triggers, física, medios y eventos Lua.">
+    <link rel="canonical" href="https://jevzgames.com/es/games/jumpfall/level-editor/">
+    <link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/level-editor/">
+    <link rel="alternate" hreflang="es" href="https://jevzgames.com/es/games/jumpfall/level-editor/">
+    <link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/jumpfall/level-editor/">
+    <meta property="og:site_name" content="JEVZGames">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="Editor de Niveles de JumpFall - JEVZGames">
+    <meta property="og:description" content="Resumen oficial del Editor de Niveles de JumpFall: crea, prueba y compila mapas con triggers, física, medios y eventos Lua.">
+    <meta property="og:url" content="https://jevzgames.com/es/games/jumpfall/level-editor/">
+    <meta property="og:image" content="https://jevzgames.com/images/jumpfall/Screenshot-game/12-level-editor.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Editor de Niveles de JumpFall - JEVZGames">
+    <meta name="twitter:description" content="Resumen oficial del Editor de Niveles de JumpFall: crea, prueba y compila mapas con triggers, física, medios y eventos Lua.">
+    <meta name="twitter:image" content="https://jevzgames.com/images/jumpfall/Screenshot-game/12-level-editor.jpg">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JEVZGames",
+    "url": "https://jevzgames.com/",
+    "description": "JEVZGames es un proyecto independiente que desarrolla JumpFall, su editor de niveles y herramientas para creadores."
+}</script>
+    <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "JumpFall",
+    "url": "https://jevzgames.com/es/games/jumpfall/",
+    "inLanguage": "es",
+    "description": "JumpFall es un videojuego indie de plataformas 2D desarrollado por JEVZGames, con editor de niveles, mapas comunitarios, mods seguros basados en datos e integración con Steam.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "JEVZGames",
+        "url": "https://jevzgames.com/"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "JEVZGames",
+        "url": "https://jevzgames.com/"
+    },
+    "applicationCategory": "Game",
+    "genre": [
+        "Juego de plataformas",
+        "Juego indie"
+    ]
+}</script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="skip-link" href="#main">Saltar al contenido</a>
+        <nav class="nav-shell" aria-label="Navegación principal">
+            <a class="brand-link" href="/es/" aria-label="Inicio de JEVZGames">
+                <span class="brand-mark">JG</span>
+                <span class="brand-text">JEVZGames</span>
+            </a>
+            <div class="nav-actions">
+                <div class="nav-links">
+                                            <a class="" href="/es/">Inicio</a>
+                                            <a class="" href="/es/games/">Juegos</a>
+                                            <a class="is-active" href="/es/games/jumpfall/">JumpFall</a>
+                                            <a class="" href="/es/press/jumpfall/">Prensa</a>
+                                            <a class="" href="/es/about/">Acerca de</a>
+                                            <a class="" href="/es/support/">Soporte</a>
+                                    </div>
+                <div class="language-switcher" aria-label="Selector de idioma">
+                    <a class="" href="/games/jumpfall/level-editor/" hreflang="en" lang="en">EN</a>
+                    <a class="is-active" href="/es/games/jumpfall/level-editor/" hreflang="es" lang="es">ES</a>
+                </div>
+                <a class="nav-steam" href="https://store.steampowered.com/app/4053230/JumpFall/" target="_blank" rel="noopener noreferrer">Steam</a>
+            </div>
+        </nav>
+    </header>
+<main id="main" class="page">
+    <div class="breadcrumb"><a href="/es/games/jumpfall/">JumpFall</a> / Editor de Niveles</div>
+    <section class="hero">
+        <div>
+            <span class="eyebrow">Herramientas de creación</span>
+            <h1>Editor de Niveles</h1>
+            <p class="lead">Crea, prueba y prepara niveles personalizados de JumpFall con controles de escritorio y una interfaz multiplataforma experimental para flujos táctiles, mouse y mando.</p>
+            <div class="actions">
+                <a class="button primary" href="/games/jumpfall/tutorial/maps/es/">Abrir manual</a>
+                <a class="button secondary" href="/games/jumpfall/tutorial/maps/lua/es/">Scripts Lua</a>
+            </div>
+        </div>
+        <div class="hero-media"><img src="/images/jumpfall/Screenshot-game/12-level-editor.jpg" alt="JumpFall level editor screenshot"></div>
+    </section>
+
+    <section class="section">
+        <div class="grid">
+            <article class="card">
+                <h3>Crear mapas</h3>
+                <p>Coloca piezas registradas, mueve el spawn del jugador, selecciona varios objetos, cambia su tamaño visualmente y bloquea elementos importantes contra ediciones accidentales.</p>
+            </article>
+            <article class="card">
+                <h3>Probar en juego</h3>
+                <p>Entra a playtest sin salir del editor. El editor oculta su HUD de construcción, sigue al jugador y restaura el estado editable al terminar la prueba.</p>
+            </article>
+            <article class="card">
+                <h3>Compilar y compartir</h3>
+                <p>Conserva proyectos editables .jmap, compila archivos jugables .jfue y usa el compilador JSM externo para preparar paquetes .jsm para Workshop.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2>Herramientas actuales</h2>
+            <p>El formato LevelData actual admite sistemas más allá de plataformas básicas manteniendo un contrato de runtime controlado.</p>
+        </div>
+        <div class="grid">
+            <article class="card">
+                <h3>Física y objetos de movimiento</h3>
+                <p>Configura la gravedad del mapa, placas de impulso con destino visual, ascensores, checkpoints, orbes de salto y un spawn seguro para el jugador.</p>
+            </article>
+            <article class="card">
+                <h3>Triggers y eventos</h3>
+                <p>Usa zonas de muerte, límites, cambios de nivel, metas, cámaras estáticas, visibilidad, temporizadores, wall jump y eventos configurables de objetos.</p>
+            </article>
+            <article class="card">
+                <h3>Medios personalizados y Lua</h3>
+                <p>Los mapas pueden incluir fondos PNG, fondos MP4/WebM sin audio, bandas sonoras WAV/OGG y eventos Lua restringidos dentro del paquete.</p>
+            </article>
+            <article class="card">
+                <h3>Boss Graph beta</h3>
+                <p>Un grafo visual puede definir movimiento, fases, ataques y señales de objetos para jefes 2D. Sigue siendo una función beta y debe probarse con cuidado.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="grid two">
+            <article class="card">
+                <h2>Flujo de archivos</h2>
+                <ul class="meta-list">
+                    <li><span>.jmap</span><strong>Proyecto editable</strong></li>
+                    <li><span>.jfue</span><strong>Mapa jugable compilado</strong></li>
+                    <li><span>.jsm</span><strong>Paquete de Workshop</strong></li>
+                </ul>
+            </article>
+            <article class="card notice">
+                <h2>Nota de plataforma</h2>
+                <p>Los fondos de video se rechazan temporalmente en Linux con el mensaje Map not compatible. Los fondos PNG y mapas sin video siguen funcionando mientras se evalúa una transcodificación automática.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2>Vista del editor</h2>
+            <p>El editor es un sistema central del Acceso Anticipado. La claridad de interfaz, controles táctiles y con mando, compatibilidad y seguridad de mapas siguen mejorando mediante pruebas.</p>
+        </div>
+        <div class="screenshot-grid">
+            <figure class="screenshot"><img src="/images/jumpfall/Screenshot-game/12-level-editor.jpg" alt="JumpFall editor grid"><figcaption>Cuadrícula del editor</figcaption></figure>
+            <figure class="screenshot"><img src="/images/jumpfall/Screenshot-game/1.jpg" alt="JumpFall main menu"><figcaption>Menú principal</figcaption></figure>
+            <figure class="screenshot"><img src="/images/jumpfall/Screenshot-game/3.jpg" alt="JumpFall test map"><figcaption>Prueba en juego</figcaption></figure>
+        </div>
+    </section>
+
+    <section class="section">
+        <article class="card notice">
+            <h2>Documentación</h2>
+            <p>La documentación actual para usuarios está disponible en los tutoriales de JumpFall. Esta página funciona como resumen oficial y punto de entrada.</p>
+            <div class="actions">
+                <a class="button primary" href="/games/jumpfall/tutorial/maps/es/">Abrir manual del editor</a>
+                <a class="button secondary" href="/games/jumpfall/tutorial/maps/lua/es/">Scripts Lua para mapas</a>
+            </div>
+        </article>
+    </section>
+</main>
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <strong>JEVZGames</strong>
+                <p>Proyecto indie que desarrolla JumpFall, niveles creados por jugadores y herramientas seguras para creadores.</p>
+            </div>
+            <nav aria-label="Navegación del pie de página">
+                <a href="/es/games/jumpfall/">JumpFall</a>
+                <a href="/es/games/jumpfall/level-editor/">Editor de Niveles</a>
+                <a href="/es/games/jumpfall/community-maps/">Mapas Comunitarios</a>
+                <a href="/es/games/jumpfall/modding/">Modding</a>
+                <a href="/es/support/">Soporte</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 JEVZGames.</span>
+            <span>JumpFall es un videojuego indie desarrollado por JEVZGames.</span>
+        </div>
+    </footer>
+</body>
+</html>

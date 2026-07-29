@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /_includes/
+Disallow: /jumpfall/
+Disallow: /programs/
+Disallow: /trash/
+Disallow: /quarantine_security_review/
+Disallow: /games/jumpfall/tutorial/check-version.php
+Disallow: /games/jumpfall/tutorial/dispatcher.php
+Disallow: /games/jumpfall/tutorial/skin/en/execute-stdin.php
+Disallow: /games/jumpfall/tutorial/skin/en/PHPLoader.php
+Disallow: /games/jumpfall/tutorial/skin/en/widget.php
+Disallow: /games/jumpfall/tutorial/skin/es/PHPLoader.php
+Disallow: /games/jumpfall/tutorial/skin/es/dl/PHPInit.php
+Disallow: /games/jumpfall/tutorial/maps/lua/es/value.php
+
+Sitemap: https://jevzgames.com/sitemap.xml

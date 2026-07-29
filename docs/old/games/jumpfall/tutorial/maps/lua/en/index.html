@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jumpfall Lua Map Scripting Tutorial - JEVZGames</title>
+  <meta name="description" content="English tutorial for Jumpfall Lua map scripting, including folders, events, the jf API, JSM packaging and safety limits.">
+  <link rel="canonical" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/en/">
+  <link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/en/">
+  <link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/es/">
+  <link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/en/">
+  <meta property="og:site_name" content="JEVZGames">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Jumpfall Lua Map Scripting Tutorial - JEVZGames">
+  <meta property="og:description" content="Create safe Lua scripts for custom Jumpfall maps.">
+  <meta property="og:url" content="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/en/">
+  <meta name="twitter:card" content="summary">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f5f7fb;
+      --ink: #172033;
+      --muted: #5e6a7d;
+      --panel: #ffffff;
+      --line: #d8e0ec;
+      --brand: #12bdd0;
+      --brand-dark: #087b91;
+      --accent: #b9ff65;
+      --warn: #ffdd63;
+      --code: #101828;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      background: var(--brand);
+      color: #062a34;
+      padding: 42px 24px 34px;
+      border-bottom: 4px solid var(--brand-dark);
+    }
+
+    header .wrap, main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 6vw, 4rem);
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 42px 0 14px;
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      margin: 26px 0 10px;
+      font-size: 1.15rem;
+    }
+
+    p { margin: 0 0 14px; }
+    main { padding: 26px 0 60px; }
+
+    nav {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin: 18px 0 24px;
+    }
+
+    nav a {
+      color: var(--brand-dark);
+      display: inline-block;
+      margin: 5px 18px 5px 0;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background: var(--accent);
+      color: #17350b;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      background: #ffffff;
+      border-color: #0a8da1;
+      color: #075c70;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin: 18px 0;
+    }
+
+    code, pre { font-family: Consolas, Monaco, monospace; }
+    code {
+      background: #edf3f8;
+      border: 1px solid #dce7f1;
+      border-radius: 4px;
+      padding: 1px 5px;
+    }
+
+    pre {
+      background: var(--code);
+      color: #eaf3ff;
+      border-radius: 8px;
+      overflow: auto;
+      padding: 16px;
+      margin: 14px 0;
+      line-height: 1.45;
+    }
+
+    pre code {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      color: inherit;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0 18px;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th { background: #edf7fa; }
+
+    .note {
+      background: #fff9df;
+      border-left: 5px solid var(--warn);
+      padding: 12px 14px;
+      margin: 14px 0;
+      border-radius: 6px;
+    }
+
+    .ok {
+      background: #edffdd;
+      border-left: 5px solid var(--accent);
+      padding: 12px 14px;
+      margin: 14px 0;
+      border-radius: 6px;
+    }
+
+    ul, ol { padding-left: 24px; }
+    li { margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Jumpfall Lua Modding</h1>
+      <p>Manual for creating safe Lua scripts in custom Jumpfall maps.</p>
+      <div class="toolbar">
+        <a class="button" href="../../en/">Level Editor tutorial</a>
+        <a class="button secondary" href="../es/" hreflang="es">Ver en espanol</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <nav aria-label="Contents">
+      <a href="#idea">General idea</a>
+      <a href="#folders">Folders</a>
+      <a href="#first-script">First script</a>
+      <a href="#api">Lua API</a>
+      <a href="#jsm">.jsm packages</a>
+      <a href="#security">Security</a>
+      <a href="#debug">Testing</a>
+    </nav>
+
+    <section id="idea">
+      <h2>1. General idea</h2>
+      <p>Jumpfall uses Lua for map scripts. This allows simple custom events without external loaders and without touching the game root folder.</p>
+      <p>The runtime uses MoonSharp embedded in Unity. Players do not need to install Lua on Windows, macOS or Linux.</p>
+      <div class="ok">
+        Recommended Lua modding lives inside the map and is packaged with the <code>.jsm</code> file.
+      </div>
+    </section>
+
+    <section id="folders">
+      <h2>2. Important folders</h2>
+      <table>
+        <thead>
+          <tr><th>Folder</th><th>Use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Documents\jumpfall\levels\assetslocal\lua</code></td><td>Local Lua scripts while creating a map.</td></tr>
+          <tr><td><code>Documents\jumpfall\levels\assetslocal\sound</code></td><td>Local sounds used by scripts or soundtrack settings.</td></tr>
+          <tr><td><code>Documents\jumpfall\levels\assetslocal\backgroundimg</code></td><td>Local PNG backgrounds used by the Level Editor.</td></tr>
+          <tr><td><code>Documents\jumpfall\levels\workshop\{workshopid}\assetlocal\lua</code></td><td>Lua scripts installed from a Workshop map package.</td></tr>
+        </tbody>
+      </table>
+      <p>The default entry file is <code>main.lua</code>. If the compiled map does not include that file, the map loads without Lua.</p>
+      <p>If a map should not use Lua, its configuration can leave <code>lua.enabled</code> as <code>false</code>.</p>
+    </section>
+
+    <section id="first-script">
+      <h2>3. First script</h2>
+      <p>Create this file:</p>
+      <pre><code>Documents\jumpfall\levels\assetslocal\lua\main.lua</code></pre>
+      <p>Basic example:</p>
+      <pre><code class="language-lua">function on_level_start()
+  jf.log("Lua loaded in " .. jf.map_name)
+end
+
+function on_update(dt)
+  local pos = jf.player.position()
+
+  if pos.y &lt; -20 then
+    jf.player.damage(999)
+  end
+end
+
+function on_trigger_enter(trigger_id, x, y)
+  jf.log("Touched trigger: " .. trigger_id)
+
+  if trigger_id == "finish_level" then
+    jf.level.finish()
+  end
+end</code></pre>
+      <p>Save the map, enter playtest with <code>F5</code> and check the Unity console or the in-game dev console.</p>
+    </section>
+
+    <section id="api">
+      <h2>4. Available API</h2>
+
+      <h3>Events</h3>
+      <table>
+        <thead>
+          <tr><th>Function</th><th>When it runs</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>on_level_start()</code></td><td>One frame after loading the map, when the player object should already exist.</td></tr>
+          <tr><td><code>on_update(dt)</code></td><td>Every frame while the map is active.</td></tr>
+          <tr><td><code>on_trigger_enter(trigger_id, x, y)</code></td><td>When the player enters a runtime trigger. In a <code>lua_event</code> trigger, the first value is the configured event name.</td></tr>
+          <tr><td><code>on_trigger_enter_ex(event_name, raw_trigger_id, x, y)</code></td><td>Extended version that gives both the event name and the real trigger id.</td></tr>
+          <tr><td><code>on_lua_event(event_name, x, y)</code></td><td>Only called when the player touches a <code>lua_event</code> trigger.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>lua_event trigger</h3>
+      <p>A <code>lua_event</code> trigger does not change maps and does not finish the level. It only notifies the Lua script with the configured event name.</p>
+      <p>Place it from trigger mode with <code>F6</code>. To configure it, enable Object Edit with <code>F4</code>, select the trigger and press <code>E</code>.</p>
+      <pre><code class="language-lua">function on_lua_event(event_name, x, y)
+  if event_name == "open_door" then
+    jf.log("Open a door from Lua")
+  end
+end</code></pre>
+
+      <h3>General functions</h3>
+      <table>
+        <thead>
+          <tr><th>Function</th><th>Use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>jf.log(text)</code></td><td>Writes a message to the console.</td></tr>
+          <tr><td><code>jf.time()</code></td><td>Returns Unity time.</td></tr>
+          <tr><td><code>jf.dt()</code></td><td>Returns the last registered delta time.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Simple variables</h3>
+      <pre><code class="language-lua">jf.vars.set("coins", 0)
+jf.vars.add("coins", 1)
+local coins = jf.vars.get("coins")</code></pre>
+      <p>Only simple values should be stored: <code>nil</code>, booleans, numbers and text.</p>
+
+      <h3>Player</h3>
+      <table>
+        <thead>
+          <tr><th>Function</th><th>Details</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>jf.player.position()</code></td><td>Returns a table with <code>x</code> and <code>y</code>.</td></tr>
+          <tr><td><code>jf.player.set_velocity(x, y)</code></td><td>Changes the Rigidbody2D velocity with internal limits.</td></tr>
+          <tr><td><code>jf.player.add_force(x, y)</code></td><td>Applies a limited impulse.</td></tr>
+          <tr><td><code>jf.player.damage(amount)</code></td><td>Damages the player.</td></tr>
+          <tr><td><code>jf.player.heal(amount)</code></td><td>Heals the player.</td></tr>
+          <tr><td><code>jf.player.set_gravity(value)</code></td><td>Changes player gravity between 0 and 12.</td></tr>
+          <tr><td><code>jf.player.set_move_speed(value)</code></td><td>Changes base movement speed between 0 and 30.</td></tr>
+          <tr><td><code>jf.player.set_jump_force(value)</code></td><td>Changes jump force between 0 and 60.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Level</h3>
+      <table>
+        <thead>
+          <tr><th>Function</th><th>Details</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>jf.level.finish()</code></td><td>In playtest, shows a finish message. At runtime, returns to <code>Menugame</code>.</td></tr>
+          <tr><td><code>jf.level.change("map")</code></td><td>Loads a <code>.jfue</code> by name through the compiled map loader.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Audio</h3>
+      <pre><code class="language-lua">function on_level_start()
+  jf.audio.play("bell.ogg", 0.8)
+end</code></pre>
+      <p>Sounds must be in <code>assetlocal\sound</code> and should use <code>.wav</code> or <code>.ogg</code>.</p>
+    </section>
+
+    <section id="jsm">
+      <h2>5. How Lua is included in a .jsm package</h2>
+      <p>A Workshop map package should include the compiled playable map and the local assets it needs.</p>
+      <pre><code>example.jsm
+  map.jfue
+  manifest.json
+  preview.png
+  assetlocal/
+    lua/main.lua
+    sound/
+    backgroundimg/</code></pre>
+      <p>Do not publish the editable <code>.jmap</code> inside the <code>.jsm</code>. That file is for editing, not for public runtime loading.</p>
+    </section>
+
+    <section id="security">
+      <h2>6. Security and limits</h2>
+      <ul>
+        <li>Lua runs in a restricted environment.</li>
+        <li>Scripts should not read arbitrary files outside the map asset folders.</li>
+        <li>Scripts should not start external programs.</li>
+        <li>Keep events small and predictable.</li>
+        <li>Avoid heavy loops in <code>on_update</code>.</li>
+      </ul>
+      <div class="note">
+        Lua modding is intended for map behavior, not for replacing external mod loaders or modifying the game executable.
+      </div>
+    </section>
+
+    <section id="debug">
+      <h2>7. Testing and debugging</h2>
+      <ol>
+        <li>Start with a small <code>main.lua</code>.</li>
+        <li>Use <code>jf.log()</code> to confirm that events run.</li>
+        <li>Test with <code>F5</code> before compiling.</li>
+        <li>Use a <code>lua_event</code> trigger for custom interactions.</li>
+        <li>Compile with <code>F8</code> and test the compiled <code>.jfue</code>.</li>
+      </ol>
+      <p>If nothing happens, check the file path, trigger name, event name and whether Lua is enabled for the map.</p>
+    </section>
+  </main>
+</body>
+</html>
