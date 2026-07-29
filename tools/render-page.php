@@ -32,6 +32,45 @@ if ($page === false || !is_file($page) || strpos($page, $rootPrefix) !== 0) {
 $relativeDirectory = str_replace('\\', '/', dirname('/' . $relative));
 $publicPath = $relativeDirectory === '/' ? '/' : rtrim($relativeDirectory, '/') . '/';
 
+/*
+ * PHP redirects cannot run on GitHub Pages. Detect the small redirect entry
+ * points used by this site and emit a static HTML redirect instead.
+ */
+$source = file_get_contents($page);
+if ($source === false) {
+    fwrite(STDERR, "Could not read page source: {$relative}\n");
+    exit(74);
+}
+
+if (preg_match("~header\\(\\s*['\"]Location:\\s*['\"]\\s*\\.\\s*jg_path\\(\\s*['\"]([^'\"]+)['\"]~", $source, $match) === 1) {
+    $target = '/' . ltrim($match[1], '/');
+    $target = rtrim($target, '/') . '/';
+
+    if ($lang === 'es') {
+        $target = '/es' . $target;
+    }
+
+    $escapedTarget = htmlspecialchars($target, ENT_QUOTES, 'UTF-8');
+    $canonical = 'https://jevzgames.com' . $target;
+    $escapedCanonical = htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8');
+
+    echo "<!doctype html>\n";
+    echo '<html lang="' . $lang . '">' . "\n";
+    echo "<head>\n";
+    echo "    <meta charset=\"utf-8\">\n";
+    echo "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
+    echo "    <meta http-equiv=\"refresh\" content=\"0; url={$escapedTarget}\">\n";
+    echo "    <link rel=\"canonical\" href=\"{$escapedCanonical}\">\n";
+    echo "    <title>Redirecting to JumpFall</title>\n";
+    echo "</head>\n";
+    echo "<body>\n";
+    echo "    <p><a href=\"{$escapedTarget}\">Continue to JumpFall</a></p>\n";
+    echo "    <script>location.replace(" . json_encode($target, JSON_UNESCAPED_SLASHES) . ");</script>\n";
+    echo "</body>\n";
+    echo "</html>\n";
+    exit(0);
+}
+
 $_GET = $lang === 'es' ? array('lang' => 'es') : array();
 $_POST = array();
 $_COOKIE = array();
