@@ -1,0 +1,51 @@
+name: Build GitHub Pages files
+
+on:
+  push:
+    branches:
+      - github-web
+    paths-ignore:
+      - 'docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-web-static-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out github-web
+        uses: actions/checkout@v4
+        with:
+          ref: github-web
+          fetch-depth: 0
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
+      - name: Generate static website
+        run: bash tools/build-static.sh
+
+      - name: Commit generated docs
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A docs
+
+          if git diff --cached --quiet; then
+            echo "The generated website is already up to date."
+            exit 0
+          fi
+
+          git commit -m "Build static GitHub Pages website"
+          git push origin HEAD:github-web
