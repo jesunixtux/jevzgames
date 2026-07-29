@@ -4,7 +4,7 @@
   <url>
     <loc>https://jevzgames.com/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -13,7 +13,7 @@
   <url>
     <loc>https://jevzgames.com/games/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/games/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -22,7 +22,7 @@
   <url>
     <loc>https://jevzgames.com/games/jumpfall/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/jumpfall/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/games/jumpfall/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/jumpfall/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,7 +31,7 @@
   <url>
     <loc>https://jevzgames.com/games/jumpfall/level-editor/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/level-editor/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/jumpfall/level-editor/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/games/jumpfall/level-editor/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/jumpfall/level-editor/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -67,7 +67,7 @@
   <url>
     <loc>https://jevzgames.com/games/jumpfall/community-maps/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/community-maps/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/jumpfall/community-maps/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/games/jumpfall/community-maps/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/jumpfall/community-maps/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -76,7 +76,7 @@
   <url>
     <loc>https://jevzgames.com/games/jumpfall/modding/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/modding/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/jumpfall/modding/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/games/jumpfall/modding/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/jumpfall/modding/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -85,7 +85,7 @@
   <url>
     <loc>https://jevzgames.com/press/jumpfall/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/press/jumpfall/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/press/jumpfall/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/press/jumpfall/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/press/jumpfall/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -94,7 +94,7 @@
   <url>
     <loc>https://jevzgames.com/about/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/about/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/about/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/about/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -103,7 +103,7 @@
   <url>
     <loc>https://jevzgames.com/support/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/support/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/support/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/es/support/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/support/"/>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
