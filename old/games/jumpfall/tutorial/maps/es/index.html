@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jumpfall Level Editor Tutorial</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f4f7fb;
+      --ink: #101827;
+      --muted: #526174;
+      --panel: #ffffff;
+      --line: #d8e2ef;
+      --brand: #16bfd0;
+      --brand-dark: #08778b;
+      --accent: #b9ff65;
+      --accent-dark: #6ea22d;
+      --warn: #fff3c4;
+      --danger: #ffefef;
+      --code: #101828;
+      --code-ink: #f7fbff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    header {
+      background: var(--brand);
+      border-bottom: 4px solid var(--brand-dark);
+      color: #062a34;
+      padding: 36px 20px 30px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 3rem;
+    }
+
+    h2 {
+      margin: 38px 0 14px;
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      font-size: 1.18rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    a {
+      color: #075c70;
+      font-weight: 700;
+    }
+
+    code {
+      background: #edf3f9;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.95em;
+    }
+
+    pre {
+      margin: 12px 0 18px;
+      background: var(--code);
+      color: var(--code-ink);
+      border-radius: 8px;
+      overflow-x: auto;
+      padding: 16px;
+    }
+
+    pre code {
+      background: transparent;
+      border: 0;
+      color: inherit;
+      padding: 0;
+    }
+
+    main {
+      padding: 26px 0 64px;
+    }
+
+    .subtitle {
+      max-width: 780px;
+      color: #073943;
+      font-size: 1.1rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background: var(--accent);
+      color: #17350b;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      background: #ffffff;
+      border-color: #0a8da1;
+      color: #075c70;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      border-color: #17350b;
+      outline: none;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    nav {
+      position: sticky;
+      top: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    nav strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    nav a {
+      display: block;
+      color: #1b4a5c;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 6px 0;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .note {
+      border-left: 5px solid var(--brand);
+      background: #ecfbfd;
+      padding: 14px 16px;
+      border-radius: 6px;
+      margin: 14px 0;
+    }
+
+    .warning {
+      border-left-color: #c68a00;
+      background: var(--warn);
+    }
+
+    .danger {
+      border-left-color: #d33333;
+      background: var(--danger);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfdff;
+    }
+
+    .tile strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 18px;
+      background: #fbfdff;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #e9f2f9;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 18px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .path-list code {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      color: var(--muted);
+      padding: 20px 0 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .layout {
+        display: block;
+      }
+
+      nav {
+        position: static;
+        margin-bottom: 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Jumpfall Level Editor</h1>
+      <p class="subtitle">Tutorial de uso para crear, probar, guardar y compilar mapas personalizados sin abrir Unity.</p>
+      <div class="toolbar">
+        <a class="button" href="../lua/es/">Aprender Lua para mapas</a>
+        <a class="button secondary" href="../en/" hreflang="en">English version</a>
+        <a class="button secondary" href="#atajos">Ver atajos principales</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="layout">
+      <nav aria-label="Indice del tutorial">
+        <strong>Indice</strong>
+        <a href="#inicio">Inicio rapido</a>
+        <a href="#conceptos">Conceptos</a>
+        <a href="#controles">Controles</a>
+        <a href="#objetos">Object Edit</a>
+        <a href="#bloqueo">Bloqueo</a>
+        <a href="#spawn">Spawn y playtest</a>
+        <a href="#fondos">Fondos PNG</a>
+        <a href="#musica">Banda sonora</a>
+        <a href="#triggers">Triggers</a>
+        <a href="#static-camera">Static camera</a>
+        <a href="#lua">Lua</a>
+        <a href="#guardar">Guardar y compilar</a>
+        <a href="#consola">Dev console</a>
+        <a href="#problemas">Problemas comunes</a>
+      </nav>
+
+      <div>
+        <section id="inicio">
+          <h2>Inicio rapido</h2>
+          <p>El Level Editor sirve para construir mapas personalizados, probarlos dentro del juego y prepararlos para compartirlos como mapas comunitarios.</p>
+          <ol>
+            <li>Abre Jumpfall y entra con el boton <strong>Level Editor</strong> del menu principal.</li>
+            <li>Coloca suelo con <code>LMB</code> y borra con <code>RMB</code>.</li>
+            <li>Mueve el spawn con <code>T</code> o con el modo <code>M</code>.</li>
+            <li>Prueba el mapa con <code>F5</code>.</li>
+            <li>Guarda editable con <code>F7</code>.</li>
+            <li>Compila jugable con <code>F8</code>.</li>
+          </ol>
+          <div class="note warning">
+            Esta version del editor sigue siendo prototipica. Guarda seguido con <code>F7</code> para no perder el archivo editable.
+          </div>
+        </section>
+
+        <section id="conceptos">
+          <h2>Conceptos importantes</h2>
+          <div class="grid">
+            <div class="tile">
+              <strong>Pieza</strong>
+              Objeto normal del nivel, como suelo, manzanas, plataformas o checkpoints.
+            </div>
+            <div class="tile">
+              <strong>Trigger</strong>
+              Zona especial. Se ve en el editor, pero en juego puede quedar invisible.
+            </div>
+            <div class="tile">
+              <strong>Spawn</strong>
+              Punto donde aparece el jugador al probar o jugar el mapa.
+            </div>
+            <div class="tile">
+              <strong>Background</strong>
+              Imagen PNG local usada como fondo o decoracion.
+            </div>
+            <div class="tile">
+              <strong>Objeto bloqueado</strong>
+              Objeto protegido en el editor. Se puede seleccionar, pero no mover, borrar, escalar ni configurar hasta desbloquearlo con <code>B</code>.
+            </div>
+            <div class="tile">
+              <strong><code>.jmap</code></strong>
+              Mapa editable. Conserva este archivo si quieres seguir trabajando.
+            </div>
+            <div class="tile">
+              <strong><code>.jfue</code></strong>
+              Mapa compilado y jugable. Es lo que carga Jumpfall para jugar.
+            </div>
+            <div class="tile">
+              <strong><code>.jsm</code></strong>
+              Paquete tipo zip para Workshop. Incluye <code>.jfue</code>, <code>manifest.json</code>, <code>preview.png</code> y <code>assetlocal</code>.
+            </div>
+            <div class="tile">
+              <strong><code>assetlocal</code></strong>
+              Carpeta de assets del mapa: fondos, sonidos y scripts Lua.
+            </div>
+          </div>
+        </section>
+
+        <section id="controles">
+          <h2 id="atajos">Controles principales</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Tecla o accion</th>
+                <th>Uso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>LMB</code></td><td>Colocar pieza, pintar, seleccionar o mover segun el modo.</td></tr>
+              <tr><td><code>RMB</code></td><td>Borrar, limpiar seleccion o mover la camara si arrastras.</td></tr>
+              <tr><td><code>1..9</code></td><td>Seleccion rapida de pieza o trigger.</td></tr>
+              <tr><td><code>[</code> / <code>]</code></td><td>Cambiar pieza o trigger seleccionado.</td></tr>
+              <tr><td><code>Q</code> / <code>E</code></td><td>Rotar pieza. En algunos objetos <code>E</code> abre configuracion si <code>F4</code> esta activo.</td></tr>
+              <tr><td><code>F1</code></td><td>Mostrar u ocultar la ayuda superior.</td></tr>
+              <tr><td><code>F2</code></td><td>Activar o desactivar camara libre en el editor.</td></tr>
+              <tr><td><code>F3</code></td><td>Abrir panel de backgrounds PNG.</td></tr>
+              <tr><td><code>F4</code></td><td>Modo Object Edit: seleccionar, mover, escalar y configurar objetos.</td></tr>
+              <tr><td><code>F5</code></td><td>Entrar o salir de playtest.</td></tr>
+              <tr><td><code>F6</code></td><td>Modo triggers.</td></tr>
+              <tr><td><code>F7</code></td><td>Guardar mapa editable <code>.jmap</code>.</td></tr>
+              <tr><td><code>F8</code></td><td>Compilar mapa jugable <code>.jfue</code> y preparar <code>.jsm</code>.</td></tr>
+              <tr><td><code>F9</code></td><td>Cargar un <code>.jmap</code> desde creaciones.</td></tr>
+              <tr><td><code>F10</code></td><td>Abrir panel de banda sonora personalizada.</td></tr>
+              <tr><td><code>Ctrl + F10</code></td><td>Configurar playlist, loop y pistas de sonido.</td></tr>
+              <tr><td><code>Ctrl + C</code> / <code>Ctrl + V</code></td><td>Copiar y pegar seleccion en Object Edit.</td></tr>
+              <tr><td><code>B</code></td><td>En Object Edit, bloquear o desbloquear la seleccion actual.</td></tr>
+              <tr><td><code>Ctrl + Z</code> / <code>Ctrl + Y</code></td><td>Deshacer y rehacer.</td></tr>
+              <tr><td><code>Escape</code></td><td>Cerrar panel activo o pedir confirmacion para salir.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="objetos">
+          <h2>Object Edit con F4</h2>
+          <p>Este modo se usa para ajustar visualmente piezas, triggers y backgrounds ya colocados. Es el modo que debes usar cuando algo quedo mal posicionado o con tamano raro.</p>
+          <ul>
+            <li><code>LMB</code> sobre un objeto lo selecciona.</li>
+            <li><code>LMB</code> en espacio vacio y arrastrar crea un rectangulo de seleccion.</li>
+            <li><code>Ctrl + LMB</code> agrega o quita objetos de la seleccion multiple.</li>
+            <li>Arrastrar un objeto seleccionado mueve todo el grupo.</li>
+            <li>Los cuadros amarillos cambian ancho, alto o ambas dimensiones.</li>
+            <li><code>Ctrl + rueda del mouse</code> cambia la precision de movimiento y escalado.</li>
+            <li><code>Ctrl + C</code> copia la seleccion y <code>Ctrl + V</code> la pega cerca del mouse.</li>
+            <li><code>B</code> bloquea o desbloquea la seleccion para evitar cambios accidentales.</li>
+          </ul>
+          <div class="note">
+            El rectangulo de seleccion usa el centro de cada objeto. Esto evita seleccionar por accidente un background enorme que solo toca el borde del rectangulo.
+          </div>
+        </section>
+
+        <section id="bloqueo">
+          <h2>Bloquear objetos con B</h2>
+          <p>El bloqueo sirve para proteger piezas, triggers o backgrounds importantes mientras trabajas en otra parte del mapa.</p>
+          <ol>
+            <li>Activa <code>F4</code>.</li>
+            <li>Selecciona uno o varios objetos.</li>
+            <li>Presiona <code>B</code>.</li>
+          </ol>
+          <p>Cuando un objeto esta bloqueado, el editor muestra el marco en color naranja o el texto <code>LOCKED</code>. El objeto todavia puede seleccionarse para poder desbloquearlo.</p>
+          <ul>
+            <li>No se puede mover.</li>
+            <li>No se puede escalar.</li>
+            <li>No se puede rotar.</li>
+            <li>No se puede configurar con <code>E</code>.</li>
+            <li>No se puede borrar con <code>RMB</code>.</li>
+          </ul>
+          <div class="note">
+            El bloqueo es solo una proteccion del editor. No cambia como funciona el mapa al compilarlo en <code>.jfue</code>.
+          </div>
+        </section>
+
+        <section id="spawn">
+          <h2>Spawn y playtest</h2>
+          <h3>Mover el spawn</h3>
+          <ul>
+            <li><code>T</code> coloca el spawn en la posicion del mouse.</li>
+            <li><code>M</code> activa o desactiva el modo para mover el spawn.</li>
+            <li>Con <code>M</code> activo, usa <code>LMB</code> o arrastra para moverlo.</li>
+          </ul>
+
+          <h3>Probar el mapa</h3>
+          <p><code>F5</code> cambia entre editor y playtest. En playtest, el jugador aparece en el spawn y la camara sigue al objeto con tag <code>Player</code>.</p>
+          <ul>
+            <li>Los triggers visuales se ocultan cuando corresponde.</li>
+            <li>La banda sonora personalizada se reproduce si esta activada.</li>
+            <li>Al volver al editor, el mapa vuelve al estado editable.</li>
+          </ul>
+        </section>
+
+        <section id="fondos">
+          <h2>Fondos PNG con F3</h2>
+          <p>Los fondos personalizados se guardan en <code>assetlocal\backgroundimg</code>. Puedes tener mas de un background en el mismo mapa.</p>
+          <ol>
+            <li>Presiona <code>F3</code>.</li>
+            <li>Elige un PNG ya copiado o pega una ruta de origen para copiarlo.</li>
+            <li>Agrega el background.</li>
+            <li>Activa <code>F4</code> para moverlo o cambiar su tamano.</li>
+            <li>Presiona <code>E</code> sobre el background si tiene parametros editables.</li>
+          </ol>
+          <div class="note warning">
+            Para evitar borrarlo por accidente, algunos fondos requieren <code>Ctrl + RMB</code> o usar la accion de remover desde el panel.
+          </div>
+        </section>
+
+        <section id="musica">
+          <h2>Banda sonora personalizada con F10</h2>
+          <p>La musica del mapa se guarda como lista dentro del archivo del nivel. Los audios reales van en <code>assetlocal\sound</code>.</p>
+          <ul>
+            <li><code>F10</code> abre el panel de banda sonora.</li>
+            <li><code>Ctrl + F10</code> abre la configuracion de loop y playlist.</li>
+            <li>Formatos aceptados: <code>.ogg</code> y <code>.wav</code>.</li>
+            <li>Si hay varias canciones y el loop esta activo, el juego reproduce la lista completa y luego vuelve al inicio.</li>
+            <li>Si el loop esta desactivado, la lista se reproduce una sola vez.</li>
+          </ul>
+        </section>
+
+        <section id="triggers">
+          <h2>Triggers con F6</h2>
+          <p>Los triggers son zonas del mapa que ejecutan una accion cuando el jugador entra.</p>
+          <ol>
+            <li>Presiona <code>F6</code> para activar el modo triggers.</li>
+            <li>Usa <code>[</code>, <code>]</code> o <code>1..9</code> para elegir el trigger.</li>
+            <li>Coloca con <code>LMB</code>.</li>
+            <li>Activa <code>F4</code> para moverlo o cambiar su tamano.</li>
+            <li>Presiona <code>E</code> sobre triggers configurables.</li>
+          </ol>
+          <table>
+            <thead>
+              <tr>
+                <th>Trigger</th>
+                <th>Funcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>limit_map</code></td><td>Limite o zona de control del mapa.</td></tr>
+              <tr><td><code>deathzone</code></td><td>Mata al jugador si entra.</td></tr>
+              <tr><td><code>changelevel</code></td><td>Cambia a otro mapa <code>.jfue</code>. No puede usarse para reemplazar <code>MainMenu</code>.</td></tr>
+              <tr><td><code>finish_level</code></td><td>Termina el nivel. En playtest muestra un mensaje y vuelve al editor.</td></tr>
+              <tr><td><code>lua_event</code></td><td>Dispara un evento Lua del mapa. No hace nada por si solo.</td></tr>
+              <tr><td><code>static_camera</code></td><td>Fija la camara mientras el jugador esta dentro de la zona.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="static-camera">
+          <h2>Configurar static_camera</h2>
+          <p>El trigger <code>static_camera</code> crea una zona donde la camara deja de seguir al jugador y se queda en una vista definida por el mapa.</p>
+          <ol>
+            <li>Presiona <code>F6</code>.</li>
+            <li>Selecciona <code>static_camera</code> con <code>[</code>, <code>]</code> o el numero que le corresponda.</li>
+            <li>Colocalo con <code>LMB</code>.</li>
+            <li>Activa <code>F4</code>, selecciona el trigger y presiona <code>E</code>.</li>
+          </ol>
+          <h3>Modos de vista</h3>
+          <ul>
+            <li><strong>Freeze</strong>: congela la camara en la posicion que tenia al entrar.</li>
+            <li><strong>Zone Center</strong>: centra la camara en el centro del trigger.</li>
+            <li><strong>Custom XY</strong>: usa una posicion escrita manualmente. Tambien puedes usar la posicion actual del trigger como base.</li>
+          </ul>
+          <h3>Parametros utiles</h3>
+          <ul>
+            <li><strong>Offset X/Y</strong>: corrige la vista sin mover el trigger.</li>
+            <li><strong>Override Zoom</strong>: permite usar un tamano de camara especial solo para esa zona.</li>
+            <li><strong>Orthographic Size</strong>: define que tan lejos o cerca se ve la camara si el override esta activo.</li>
+            <li><strong>Blend Seconds</strong>: suaviza la transicion al entrar o cambiar de zona.</li>
+          </ul>
+          <div class="note warning">
+            La camara vuelve a seguir al jugador solo cuando el jugador sale completamente del trigger o entra a otro <code>static_camera</code>. Esto evita parpadeos al moverse rapido de izquierda a derecha dentro de la zona.
+          </div>
+        </section>
+
+        <section id="lua">
+          <h2>Eventos Lua para mapas</h2>
+          <p>Lua permite agregar comportamiento personalizado a un mapa sin modificar el juego base. El script principal vive en <code>assetlocal\lua\main.lua</code>.</p>
+          <p>Para conectar un trigger al script:</p>
+          <ol>
+            <li>Coloca un trigger <code>lua_event</code> con <code>F6</code>.</li>
+            <li>Activa <code>F4</code>, selecciona el trigger y presiona <code>E</code>.</li>
+            <li>Escribe el nombre del evento, por ejemplo <code>open_gate</code>.</li>
+            <li>En <code>main.lua</code>, implementa <code>on_lua_event</code>.</li>
+          </ol>
+          <pre><code>function on_lua_event(event_name, x, y)
+  if event_name == "open_gate" then
+    jf.log("Gate event at " .. x .. ", " .. y)
+  end
+end</code></pre>
+          <div class="toolbar">
+            <a class="button" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/es/">Abrir tutorial Lua completo</a>
+          </div>
+          <div class="note danger">
+            Los scripts Lua del mapa estan sandboxeados. No deben usarse para instalar archivos, ejecutar programas externos o modificar carpetas fuera del mapa.
+          </div>
+        </section>
+
+        <section id="guardar">
+          <h2>Guardar, compilar y compartir</h2>
+          <h3>Guardar editable</h3>
+          <p><code>F7</code> guarda un archivo <code>.jmap</code> en la carpeta de creaciones. Este es el archivo que debes conservar para seguir editando.</p>
+
+          <h3>Cargar editable</h3>
+          <p><code>F9</code> abre <strong>LoadMapEditor</strong> y muestra los <code>.jmap</code> guardados.</p>
+
+          <h3>Compilar jugable</h3>
+          <p><code>F8</code> compila el mapa a <code>.jfue</code>. Esa version usa el jugador real del juego y es la que se carga para jugar.</p>
+
+          <h3>Crear paquete de Workshop</h3>
+          <p>El flujo de Workshop usa <code>.jsm</code>, que es un paquete con:</p>
+          <ul>
+            <li>El mapa <code>.jfue</code>.</li>
+            <li><code>manifest.json</code>.</li>
+            <li><code>preview.png</code>.</li>
+            <li><code>assetlocal\backgroundimg</code>.</li>
+            <li><code>assetlocal\sound</code>.</li>
+            <li><code>assetlocal\lua</code>.</li>
+          </ul>
+          <div class="note warning">
+            No publiques el <code>.jmap</code> dentro del paquete Workshop. El <code>.jmap</code> es editable y debe quedarse como archivo de trabajo del creador.
+          </div>
+        </section>
+
+        <section id="rutas">
+          <h2>Donde se guardan las cosas</h2>
+          <ul class="path-list">
+            <li>Mapas editables: <code>Documents\jumpfall\levels\creations</code></li>
+            <li>Mapas compilados: <code>Documents\jumpfall\levels\compilator</code></li>
+            <li>Mapas Workshop instalados: <code>Documents\jumpfall\levels\workshop\{workshopid}</code></li>
+            <li>Fondos locales: <code>Documents\jumpfall\levels\assetlocal\backgroundimg</code></li>
+            <li>Sonidos locales: <code>Documents\jumpfall\levels\assetlocal\sound</code></li>
+            <li>Scripts Lua locales: <code>Documents\jumpfall\levels\assetlocal\lua</code></li>
+            <li>Configuraciones del juego: <code>Documents\jumpfall\configs</code></li>
+            <li>Partidas guardadas: <code>Documents\jumpfall\save</code></li>
+          </ul>
+        </section>
+
+        <section id="consola">
+          <h2>Dev console</h2>
+          <p>La consola de desarrollo sirve para probar mapas compilados y revisar rutas. En builds normales de PC se activa con parametro de lanzamiento.</p>
+          <ol>
+            <li>En Steam, abre propiedades del juego.</li>
+            <li>En parametros de lanzamiento agrega <code>dev_console</code>.</li>
+            <li>Abre el juego.</li>
+            <li>Presiona <code>F11</code> para mostrar u ocultar la consola.</li>
+          </ol>
+          <table>
+            <thead>
+              <tr>
+                <th>Comando</th>
+                <th>Uso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>compiledmaps</code></td><td>Muestra mapas <code>.jfue</code> encontrados.</td></tr>
+              <tr><td><code>localmaps</code></td><td>Muestra mapas compilados locales.</td></tr>
+              <tr><td><code>loadjfue nombre</code></td><td>Carga un mapa compilado por nombre.</td></tr>
+              <tr><td><code>luascripts</code></td><td>Muestra scripts Lua locales encontrados.</td></tr>
+              <tr><td><code>luapath</code></td><td>Muestra la carpeta Lua local.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="problemas">
+          <h2>Problemas comunes</h2>
+          <h3>No veo mi mapa en LoadMapEditor</h3>
+          <p>Revisa que sea un archivo <code>.jmap</code> y que este en <code>Documents\jumpfall\levels\creations</code>.</p>
+
+          <h3>El jugador cae al probar</h3>
+          <p>Vuelve con <code>F5</code>, mueve el spawn con <code>T</code> o <code>M</code> y revisa que haya suelo bajo el jugador.</p>
+
+          <h3>Un objeto quedo gigante o muy pequeno</h3>
+          <p>Activa <code>F4</code>, selecciona el objeto y usa los cuadros amarillos para ajustar el tamano. Usa <code>Ctrl + rueda</code> para cambiar la precision.</p>
+
+          <h3>No puedo mover, borrar o configurar un objeto</h3>
+          <p>Puede estar bloqueado. Activa <code>F4</code>, selecciona el objeto y revisa si el marco aparece naranja o si el texto dice <code>LOCKED</code>. Presiona <code>B</code> para desbloquearlo.</p>
+
+          <h3>No suena la musica</h3>
+          <p>Comprueba que el audio este en <code>assetlocal\sound</code>, que sea <code>.ogg</code> o <code>.wav</code>, y que la banda sonora este activada en <code>F10</code>.</p>
+
+          <h3>Mi evento Lua no se ejecuta</h3>
+          <p>Revisa que el trigger sea <code>lua_event</code>, que tenga el nombre correcto configurado con <code>E</code>, y que exista <code>assetlocal\lua\main.lua</code>.</p>
+        </section>
+
+        <section id="checklist">
+          <h2>Checklist antes de compartir</h2>
+          <ul>
+            <li>El mapa tiene spawn correcto.</li>
+            <li>Se puede completar en playtest con <code>F5</code>.</li>
+            <li>Guardaste el editable con <code>F7</code>.</li>
+            <li>Compilaste el jugable con <code>F8</code>.</li>
+            <li>Los objetos importantes estan bloqueados con <code>B</code> mientras sigues editando.</li>
+            <li>Las zonas <code>static_camera</code> muestran la vista esperada y no sueltan la camara antes de salir.</li>
+            <li>Los fondos, sonidos y Lua usados estan dentro de <code>assetlocal</code>.</li>
+            <li>El paquete <code>.jsm</code> contiene <code>.jfue</code>, <code>manifest.json</code>, <code>preview.png</code> y <code>assetlocal</code>.</li>
+            <li>El paquete no incluye el <code>.jmap</code>.</li>
+          </ul>
+        </section>
+
+        <footer>
+          Jumpfall Level Editor Tutorial. Documento local para builds canary, beta y pruebas internas.
+        </footer>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

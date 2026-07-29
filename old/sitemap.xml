@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jevzgames.cl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/games/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/games/jumpfall/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/jumpfall/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/jumpfall/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/jumpfall/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/games/jumpfall/level-editor/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/jumpfall/level-editor/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/jumpfall/level-editor/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/jumpfall/level-editor/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/games/jumpfall/tutorial/maps/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/en/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/jumpfall/tutorial/maps/lua/en/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/games/jumpfall/tutorial/skin/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/jumpfall/tutorial/skin/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/jumpfall/tutorial/skin/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/jumpfall/tutorial/skin/en/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/games/jumpfall/community-maps/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/games/jumpfall/community-maps/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/games/jumpfall/community-maps/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/games/jumpfall/community-maps/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/press/jumpfall/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/press/jumpfall/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/press/jumpfall/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/press/jumpfall/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/about/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/about/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jevzgames.cl/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.cl/support/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.cl/support/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.cl/support/"/>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
