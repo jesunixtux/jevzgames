@@ -48,14 +48,17 @@ while IFS= read -r -d '' page; do
 
     php "$ROOT/tools/render-page.php" "$ROOT" "$relative" en \
         | php "$ROOT/tools/rewrite-static-urls.php" \
+        | php "$ROOT/tools/rewrite-relative-paths.php" "$public_directory" \
         > "$english_directory/index.html"
 
     if grep -q '_includes/site\.php' "$page"; then
-        spanish_directory="$OUT/es${public_directory:+/$public_directory}"
+        spanish_public_directory="es${public_directory:+/$public_directory}"
+        spanish_directory="$OUT/$spanish_public_directory"
         mkdir -p "$spanish_directory"
 
         php "$ROOT/tools/render-page.php" "$ROOT" "$relative" es \
             | php "$ROOT/tools/rewrite-static-urls.php" \
+            | php "$ROOT/tools/rewrite-relative-paths.php" "$spanish_public_directory" \
             > "$spanish_directory/index.html"
     fi
 done < <(find "$ROOT" -type f -name 'index.php' \
