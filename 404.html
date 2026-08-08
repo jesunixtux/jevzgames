@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - JEVZGames</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <style>
+        .error-page {
+            min-height: calc(100vh - 76px);
+            display: grid;
+            align-items: center;
+        }
+
+        .error-hero {
+            text-align: center;
+        }
+
+        .error-hero > div {
+            width: min(820px, 100%);
+            margin: 0 auto;
+        }
+
+        .error-code {
+            margin: 16px 0 0;
+            font-size: clamp(5rem, 18vw, 10rem);
+            line-height: .88;
+            font-weight: 950;
+            letter-spacing: -.08em;
+            color: transparent;
+            background: linear-gradient(135deg, #e0f2fe 0%, var(--brand) 45%, var(--brand-2) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter: drop-shadow(0 14px 32px rgba(37, 99, 235, .28));
+        }
+
+        .error-title {
+            margin-top: 24px;
+            font-size: clamp(2rem, 5vw, 3.7rem);
+            letter-spacing: -.04em;
+        }
+
+        .error-lead {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .requested-route {
+            margin: 28px auto 0;
+            width: min(680px, 100%);
+            padding: 16px 18px;
+            text-align: left;
+            background: rgba(15, 23, 42, .7);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .03);
+        }
+
+        .requested-route span {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--soft);
+            font-size: .78rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .requested-route code {
+            display: block;
+            overflow-wrap: anywhere;
+            color: #dbeafe;
+            font: 800 .98rem/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .error-actions {
+            justify-content: center;
+        }
+
+        @media (max-width: 760px) {
+            .error-page {
+                min-height: auto;
+            }
+
+            .error-hero {
+                text-align: left;
+            }
+
+            .error-lead {
+                margin-left: 0;
+            }
+
+            .error-actions {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+    <nav class="nav-shell" aria-label="Navegación principal" id="main-nav">
+        <a class="brand-link" href="/" aria-label="Inicio de JEVZGames">
+            <span class="brand-mark">JG</span>
+            <span class="brand-text">JEVZGames</span>
+        </a>
+        <div class="nav-actions">
+            <div class="nav-links">
+                <a href="/" data-i18n="homeNav">Inicio</a>
+                <a href="/games/" data-i18n="gamesNav">Juegos</a>
+                <a href="/games/jumpfall/">JumpFall</a>
+                <a href="/press/jumpfall/" data-i18n="pressNav">Prensa</a>
+                <a href="/about/" data-i18n="aboutNav">Acerca de</a>
+                <a href="/support/" data-i18n="supportNav">Soporte</a>
+            </div>
+            <div class="language-switcher" aria-label="Selector de idioma" id="language-switcher">
+                <a href="#" data-lang="en" hreflang="en" lang="en">EN</a>
+                <a href="#" data-lang="es" hreflang="es" lang="es">ES</a>
+            </div>
+            <a class="nav-steam" href="https://store.steampowered.com/app/4053230/JumpFall/" target="_blank" rel="noopener noreferrer">Steam</a>
+        </div>
+    </nav>
+</header>
+
+<main id="main" class="page error-page">
+    <section class="hero compact error-hero">
+        <div>
+            <span class="eyebrow" data-i18n="eyebrow">Error 404</span>
+            <div class="error-code" aria-hidden="true">404</div>
+            <h1 class="error-title" data-i18n="title">¿Se te perdió algo?</h1>
+            <p class="lead error-lead" data-i18n="message">No encontramos esa ruta. Puede que la página se haya movido, ya no exista o simplemente hayas terminado fuera del mapa.</p>
+
+            <div class="requested-route" aria-live="polite">
+                <span data-i18n="pathLabel">Ruta solicitada</span>
+                <code id="requested-path">/</code>
+            </div>
+
+            <div class="actions error-actions">
+                <a class="button primary" href="/" data-i18n="homeButton">Volver al inicio</a>
+                <a class="button secondary" href="/games/jumpfall/" data-i18n="jumpfallButton">Ir a JumpFall</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <strong>JEVZGames</strong>
+            <p data-i18n="footerText">Proyecto indie que desarrolla JumpFall, niveles creados por jugadores y herramientas seguras para creadores.</p>
+        </div>
+        <nav aria-label="Navegación del pie de página" id="footer-nav">
+            <a href="/games/jumpfall/">JumpFall</a>
+            <a href="/games/jumpfall/level-editor/" data-i18n="levelEditor">Editor de Niveles</a>
+            <a href="/games/jumpfall/community-maps/" data-i18n="communityMaps">Mapas Comunitarios</a>
+            <a href="/games/jumpfall/modding/">Modding</a>
+            <a href="/support/" data-i18n="supportNav">Soporte</a>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> JEVZGames.</span>
+        <span data-i18n="footerBottom">JumpFall es un videojuego indie desarrollado por JEVZGames.</span>
+    </div>
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    const translations = {
+        es: {
+            pageTitle: '404 - Página no encontrada - JEVZGames',
+            skip: 'Saltar al contenido',
+            homeNav: 'Inicio',
+            gamesNav: 'Juegos',
+            pressNav: 'Prensa',
+            aboutNav: 'Acerca de',
+            supportNav: 'Soporte',
+            eyebrow: 'Error 404',
+            title: '¿Se te perdió algo?',
+            message: 'No encontramos esa ruta. Puede que la página se haya movido, ya no exista o simplemente hayas terminado fuera del mapa.',
+            pathLabel: 'Ruta solicitada',
+            homeButton: 'Volver al inicio',
+            jumpfallButton: 'Ir a JumpFall',
+            footerText: 'Proyecto indie que desarrolla JumpFall, niveles creados por jugadores y herramientas seguras para creadores.',
+            levelEditor: 'Editor de Niveles',
+            communityMaps: 'Mapas Comunitarios',
+            footerBottom: 'JumpFall es un videojuego indie desarrollado por JEVZGames.',
+            mainNavLabel: 'Navegación principal',
+            languageLabel: 'Selector de idioma',
+            footerNavLabel: 'Navegación del pie de página'
+        },
+        en: {
+            pageTitle: '404 - Page not found - JEVZGames',
+            skip: 'Skip to content',
+            homeNav: 'Home',
+            gamesNav: 'Games',
+            pressNav: 'Press',
+            aboutNav: 'About',
+            supportNav: 'Support',
+            eyebrow: 'Error 404',
+            title: 'Looks like this page took the Fall without the Jump.',
+            message: 'We could not find that route. The page may have moved, disappeared, or you may have wandered outside the map.',
+            pathLabel: 'Requested path',
+            homeButton: 'Return home',
+            jumpfallButton: 'Go to JumpFall',
+            footerText: 'Independent game project developing JumpFall, player-made levels and safe creator tools.',
+            levelEditor: 'Level Editor',
+            communityMaps: 'Community Maps',
+            footerBottom: 'JumpFall is an indie game developed by JEVZGames.',
+            mainNavLabel: 'Main navigation',
+            languageLabel: 'Language selector',
+            footerNavLabel: 'Footer navigation'
+        }
+    };
+
+    const requestedPath = document.getElementById('requested-path');
+    const rawPath = window.location.pathname || '/';
+
+    try {
+        requestedPath.textContent = decodeURIComponent(rawPath);
+    } catch (error) {
+        requestedPath.textContent = rawPath;
+    }
+
+    function getInitialLanguage() {
+        const queryLanguage = new URLSearchParams(window.location.search).get('lang');
+        if (queryLanguage === 'es' || queryLanguage === 'en') {
+            return queryLanguage;
+        }
+
+        if (/^\/es(?:\/|$)/i.test(rawPath)) {
+            return 'es';
+        }
+
+        return (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
+    }
+
+    function applyLanguage(language) {
+        const lang = translations[language] ? language : 'en';
+        const text = translations[lang];
+
+        document.documentElement.lang = lang;
+        document.title = text.pageTitle;
+
+        document.querySelectorAll('[data-i18n]').forEach(function (element) {
+            const key = element.getAttribute('data-i18n');
+            if (Object.prototype.hasOwnProperty.call(text, key)) {
+                element.textContent = text[key];
+            }
+        });
+
+        document.getElementById('main-nav').setAttribute('aria-label', text.mainNavLabel);
+        document.getElementById('language-switcher').setAttribute('aria-label', text.languageLabel);
+        document.getElementById('footer-nav').setAttribute('aria-label', text.footerNavLabel);
+
+        document.querySelectorAll('[data-lang]').forEach(function (link) {
+            link.classList.toggle('is-active', link.getAttribute('data-lang') === lang);
+            link.setAttribute('aria-current', link.getAttribute('data-lang') === lang ? 'true' : 'false');
+        });
+    }
+
+    document.querySelectorAll('[data-lang]').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            applyLanguage(link.getAttribute('data-lang'));
+        });
+    });
+
+    document.getElementById('year').textContent = String(new Date().getFullYear());
+    applyLanguage(getInitialLanguage());
+}());
+</script>
+</body>
+</html>
