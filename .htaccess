@@ -1,6 +1,7 @@
 AddHandler application/x-httpd-php83 .php
 
 Options -Indexes
+ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
