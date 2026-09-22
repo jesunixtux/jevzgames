@@ -30,6 +30,7 @@ $page = array(
             )); ?></p>
             <div class="actions">
                 <a class="button primary" href="<?php echo jg_e(JG_STEAM_URL); ?>" target="_blank" rel="noopener noreferrer"><?php echo jg_e(jg_text('View on Steam', 'Ver en Steam')); ?></a>
+                <a class="button secondary" href="<?php echo jg_e(jg_path('/games/jumpfall/beta/')); ?>"><?php echo jg_e(jg_text('Beta Access · Coming Soon', 'Acceso a la beta · Próximamente')); ?></a>
                 <a class="button secondary" href="<?php echo jg_e(jg_path('/games/jumpfall/level-editor/')); ?>"><?php echo jg_e(jg_text('Level Editor', 'Editor de Niveles')); ?></a>
                 <a class="button secondary" href="<?php echo jg_e(jg_path('/games/jumpfall/community-maps/')); ?>"><?php echo jg_e(jg_text('Community Maps', 'Mapas Comunitarios')); ?></a>
                 <a class="button secondary" href="<?php echo jg_e(jg_path('/games/jumpfall/modding/')); ?>"><?php echo jg_e(jg_text('Modding', 'Modding')); ?></a>
@@ -150,6 +151,7 @@ $page = array(
                     <li><span><?php echo jg_e(jg_text('Developer', 'Desarrollador')); ?></span><strong>JEVZGames</strong></li>
                     <li><span><?php echo jg_e(jg_text('Game', 'Juego')); ?></span><strong>JumpFall</strong></li>
                     <li><span>Steam</span><a href="<?php echo jg_e(JG_STEAM_URL); ?>" target="_blank" rel="noopener noreferrer">store.steampowered.com/app/4053230</a></li>
+                    <li><span><?php echo jg_e(jg_text('Beta Access', 'Acceso a la beta')); ?></span><a href="<?php echo jg_e(jg_path('/games/jumpfall/beta/')); ?>"><?php echo jg_e(jg_text('Coming soon', 'Próximamente')); ?></a></li>
                     <li><span><?php echo jg_e(jg_text('Press Kit', 'Kit de prensa')); ?></span><a href="<?php echo jg_e(jg_path('/press/jumpfall/')); ?>"><?php echo jg_e(jg_text('Open press page', 'Abrir página de prensa')); ?></a></li>
                     <li><span><?php echo jg_e(jg_text('Skin Manual', 'Manual de skins')); ?></span><a href="<?php echo jg_e(jg_path($skinManualPath, 'en')); ?>"><?php echo jg_e(jg_text('Open manual', 'Abrir manual')); ?></a></li>
                     <li><span><?php echo jg_e(jg_text('Modding', 'Modding')); ?></span><a href="<?php echo jg_e(jg_path('/games/jumpfall/modding/')); ?>"><?php echo jg_e(jg_text('Open modding overview', 'Abrir resumen de modding')); ?></a></li>

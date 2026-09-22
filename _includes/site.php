@@ -206,6 +206,7 @@ function jg_footer() {
             </div>
             <nav aria-label="<?php echo jg_e(jg_text('Footer navigation', 'Navegación del pie de página')); ?>">
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/')); ?>">JumpFall</a>
+                <a href="<?php echo jg_e(jg_path('/games/jumpfall/beta/')); ?>"><?php echo jg_e(jg_text('Beta Access', 'Acceso a la beta')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/level-editor/')); ?>"><?php echo jg_e(jg_text('Level Editor', 'Editor de Niveles')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/community-maps/')); ?>"><?php echo jg_e(jg_text('Community Maps', 'Mapas Comunitarios')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/modding/')); ?>"><?php echo jg_e(jg_text('Modding', 'Modding')); ?></a>
