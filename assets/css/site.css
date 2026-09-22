@@ -461,3 +461,95 @@ h3 { font-size: 1.22rem; }
   .meta-list li { display: block; }
   h1 { letter-spacing: -.03em; }
 }
+
+/* JumpFall closed-beta teaser: static, with no form or key delivery. */
+.beta-hero {
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr);
+  border-color: rgba(125, 211, 252, .32);
+  background:
+    radial-gradient(circle at 86% 12%, rgba(56, 189, 248, .18), transparent 45%),
+    linear-gradient(135deg, rgba(27, 39, 62, .98), rgba(10, 18, 34, .94));
+}
+.beta-title-accent {
+  color: #7dd3fc;
+}
+.beta-eyebrow {
+  border-color: rgba(125, 211, 252, .42);
+}
+.beta-intro {
+  max-width: 650px;
+  color: var(--muted);
+  margin: 18px 0 0;
+}
+.beta-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  width: fit-content;
+  margin-top: 26px;
+  padding: 10px 16px;
+  border: 1px solid rgba(125, 211, 252, .35);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, .82);
+  color: #e0f2fe;
+}
+.beta-status span:last-child {
+  color: var(--soft);
+}
+.beta-status-dot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, .12);
+}
+.beta-media {
+  min-height: 360px;
+  position: relative;
+}
+.beta-media img {
+  filter: saturate(.85) contrast(1.05);
+}
+.beta-media-label {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  padding: .48rem .8rem;
+  border-radius: 999px;
+  background: rgba(2, 6, 23, .8);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, .2);
+  font-size: .82rem;
+  font-weight: 800;
+}
+.beta-info-card {
+  min-height: 210px;
+}
+.beta-step {
+  display: inline-grid;
+  place-items: center;
+  min-width: 42px;
+  min-height: 42px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  color: #e0f2fe;
+  border: 1px solid rgba(125, 211, 252, .25);
+  background: rgba(37, 99, 235, .18);
+  font-weight: 900;
+}
+.beta-faq {
+  padding: clamp(24px, 4vw, 36px);
+}
+.beta-faq h2 {
+  margin-top: 16px;
+}
+@media (max-width: 920px) {
+  .beta-hero {
+    grid-template-columns: 1fr;
+  }
+  .beta-media {
+    min-height: 250px;
+  }
+}

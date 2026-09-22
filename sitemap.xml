@@ -38,6 +38,15 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://jevzgames.com/games/jumpfall/beta/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/beta/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/jumpfall/beta/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/jumpfall/beta/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
     <loc>https://jevzgames.com/games/jumpfall/level-editor/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/level-editor/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/jumpfall/level-editor/?lang=es"/>
