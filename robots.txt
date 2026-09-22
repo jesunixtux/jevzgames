@@ -1,8 +1,28 @@
+# OpenAI Search crawler. Public pages are allowed, while legacy and server-only paths stay excluded.
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /_includes/
+Disallow: /jumpfall/
+Disallow: /programs/
+Disallow: /old/
+Disallow: /trash/
+Disallow: /quarantine_security_review/
+Disallow: /games/jumpfall/tutorial/check-version.php
+Disallow: /games/jumpfall/tutorial/dispatcher.php
+Disallow: /games/jumpfall/tutorial/skin/en/execute-stdin.php
+Disallow: /games/jumpfall/tutorial/skin/en/PHPLoader.php
+Disallow: /games/jumpfall/tutorial/skin/en/widget.php
+Disallow: /games/jumpfall/tutorial/skin/es/PHPLoader.php
+Disallow: /games/jumpfall/tutorial/skin/es/dl/PHPInit.php
+Disallow: /games/jumpfall/tutorial/maps/lua/es/value.php
+
+# Default policy for Google, Bing and other standards-compliant crawlers.
 User-agent: *
 Allow: /
 Disallow: /_includes/
 Disallow: /jumpfall/
 Disallow: /programs/
+Disallow: /old/
 Disallow: /trash/
 Disallow: /quarantine_security_review/
 Disallow: /games/jumpfall/tutorial/check-version.php
