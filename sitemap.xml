@@ -20,6 +20,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jevzgames.com/games/ch-fire/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/ch-fire/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/ch-fire/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/games/ch-fire/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://jevzgames.com/games/jumpfall/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/games/jumpfall/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/games/jumpfall/?lang=es"/>

@@ -2,6 +2,8 @@
 const JG_SITE_NAME = 'JEVZGames';
 const JG_BASE_URL = 'https://jevzgames.com';
 const JG_STEAM_URL = 'https://store.steampowered.com/app/4053230/JumpFall/';
+const JG_ITCH_URL = 'https://jevz-games.itch.io/';
+const JG_CH_FIRE_URL = 'https://jevz-games.itch.io/ch-fire';
 const JG_SDK_URL = 'https://github.com/jesunixtux/jumpfall-SDK';
 const JG_CONTACT_EMAIL = 'contact@jevzgames.com';
 const JG_OG_IMAGE = '/images/jumpfall/Screenshot-game/3.jpg';
@@ -184,6 +186,7 @@ function jg_header($active = '') {
                     <a class="<?php echo jg_lang() === 'es' ? 'is-active' : ''; ?>" href="<?php echo jg_e(jg_path($currentPath, 'es')); ?>" hreflang="es" lang="es">ES</a>
                 </div>
                 <a class="nav-steam" href="<?php echo jg_e(JG_STEAM_URL); ?>" target="_blank" rel="noopener noreferrer">Steam</a>
+                <a class="nav-store" href="<?php echo jg_e(JG_ITCH_URL); ?>" target="_blank" rel="noopener noreferrer">itch.io</a>
             </div>
         </nav>
     </header>
@@ -207,6 +210,7 @@ function jg_footer() {
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/community-maps/')); ?>"><?php echo jg_e(jg_text('Community Maps', 'Mapas Comunitarios')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/modding/')); ?>"><?php echo jg_e(jg_text('Modding', 'Modding')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/support/')); ?>"><?php echo jg_e(jg_text('Support', 'Soporte')); ?></a>
+                <a href="<?php echo jg_e(JG_ITCH_URL); ?>" target="_blank" rel="noopener noreferrer">itch.io</a>
             </nav>
         </div>
         <div class="footer-bottom">
@@ -227,8 +231,11 @@ function jg_org_schema() {
         'name' => 'JEVZGames',
         'url' => JG_BASE_URL . '/',
         'description' => jg_text(
-            'JEVZGames is an independent game project developing JumpFall, its level editor and creator tools.',
-            'JEVZGames es un proyecto independiente que desarrolla JumpFall, su editor de niveles y herramientas para creadores.'
+            'JEVZGames is an independent game project developing JumpFall, CH-FireDanger and creator tools.',
+            'JEVZGames es un proyecto independiente que desarrolla JumpFall, CH-FireDanger y herramientas para creadores.'
+        ),
+        'sameAs' => array(
+            JG_ITCH_URL
         )
     );
 }
@@ -270,5 +277,34 @@ function jg_jumpfall_schema() {
         ),
         'applicationCategory' => 'Game',
         'genre' => jg_lang() === 'es' ? array('Juego de plataformas', 'Juego indie') : array('Platform game', 'Indie game')
+    );
+}
+
+
+function jg_ch_fire_schema() {
+    return array(
+        '@context' => 'https://schema.org',
+        '@type' => 'VideoGame',
+        'name' => 'CH-FireDanger',
+        'url' => jg_url('/games/ch-fire/'),
+        'sameAs' => JG_CH_FIRE_URL,
+        'inLanguage' => jg_lang(),
+        'description' => jg_text(
+            'CH-FireDanger is an experimental 2D simulation playtest for Windows published by JEVZGames on itch.io.',
+            'CH-FireDanger es un playtest experimental de simulación 2D para Windows publicado por JEVZGames en itch.io.'
+        ),
+        'publisher' => array(
+            '@type' => 'Organization',
+            'name' => 'JEVZGames',
+            'url' => JG_BASE_URL . '/'
+        ),
+        'author' => array(
+            '@type' => 'Organization',
+            'name' => 'JEVZGames',
+            'url' => JG_BASE_URL . '/'
+        ),
+        'applicationCategory' => 'Game',
+        'operatingSystem' => 'Windows',
+        'genre' => jg_lang() === 'es' ? array('Simulación', 'Juego indie') : array('Simulation', 'Indie game')
     );
 }

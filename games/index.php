@@ -3,8 +3,8 @@ require dirname(__DIR__) . '/_includes/site.php';
 $page = array(
     'title' => jg_text('Games - JEVZGames', 'Juegos - JEVZGames'),
     'description' => jg_text(
-        'Explore JumpFall, the official indie platform game by JEVZGames with creator tools and community content.',
-        'Conoce JumpFall, el videojuego indie de plataformas oficial de JEVZGames con herramientas de creación y contenido comunitario.'
+        'Explore official JEVZGames projects including JumpFall and the CH-FireDanger experimental playtest.',
+        'Conoce los proyectos oficiales de JEVZGames, incluyendo JumpFall y el playtest experimental CH-FireDanger.'
     ),
     'path' => '/games/',
     'image' => '/images/jumpfall/Screenshot-game/5.jpg',
@@ -30,6 +30,7 @@ $page = array(
     </section>
 
     <section class="section">
+        <div class="game-list">
         <article class="card game-card feature-card">
             <div class="thumb"><img src="<?php echo jg_e(jg_asset('/images/jumpfall/Screenshot-game/3.jpg')); ?>" alt="JumpFall gameplay screenshot"></div>
             <div>
@@ -45,6 +46,22 @@ $page = array(
                 </div>
             </div>
         </article>
+
+        <article class="card game-card">
+            <div class="thumb placeholder ch-fire-placeholder"><span>CH-FireDanger</span></div>
+            <div>
+                <h2>CH-FireDanger</h2>
+                <p><?php echo jg_e(jg_text(
+                    'An experimental 2D simulation playtest for Windows, published through the official JEVZGames itch.io page.',
+                    'Un playtest experimental de simulación 2D para Windows, publicado a través de la página oficial de JEVZGames en itch.io.'
+                )); ?></p>
+                <div class="actions">
+                    <a class="button primary" href="<?php echo jg_e(jg_path('/games/ch-fire/')); ?>"><?php echo jg_e(jg_text('Open Official Page', 'Abrir página oficial')); ?></a>
+                    <a class="button secondary" href="<?php echo jg_e(JG_CH_FIRE_URL); ?>" target="_blank" rel="noopener noreferrer">itch.io</a>
+                </div>
+            </div>
+        </article>
+        </div>
     </section>
 </main>
 <?php jg_footer(); ?>
