@@ -163,7 +163,7 @@ function jg_header($active = '') {
         'games' => array('label' => jg_text('Games', 'Juegos'), 'href' => '/games/'),
         'jumpfall' => array('label' => 'JumpFall', 'href' => '/games/jumpfall/'),
         'press' => array('label' => jg_text('Press', 'Prensa'), 'href' => '/press/jumpfall/'),
-        'about' => array('label' => jg_text('About', 'Acerca de'), 'href' => '/about/'),
+        'about' => array('label' => jg_text('About Us', 'Sobre nosotros'), 'href' => '/about-us/'),
         'support' => array('label' => jg_text('Support', 'Soporte'), 'href' => '/support/')
     );
     $currentPath = jg_current_public_path();
@@ -210,6 +210,7 @@ function jg_footer() {
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/level-editor/')); ?>"><?php echo jg_e(jg_text('Level Editor', 'Editor de Niveles')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/community-maps/')); ?>"><?php echo jg_e(jg_text('Community Maps', 'Mapas Comunitarios')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/games/jumpfall/modding/')); ?>"><?php echo jg_e(jg_text('Modding', 'Modding')); ?></a>
+                <a href="<?php echo jg_e(jg_path('/about-us/')); ?>"><?php echo jg_e(jg_text('About Us', 'Sobre nosotros')); ?></a>
                 <a href="<?php echo jg_e(jg_path('/support/')); ?>"><?php echo jg_e(jg_text('Support', 'Soporte')); ?></a>
                 <a href="<?php echo jg_e(JG_ITCH_URL); ?>" target="_blank" rel="noopener noreferrer">itch.io</a>
             </nav>
