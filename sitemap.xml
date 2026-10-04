@@ -110,13 +110,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jevzgames.com/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/about/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/about/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/about/"/>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://jevzgames.com/about-us/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jevzgames.com/about-us/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jevzgames.com/about-us/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jevzgames.com/about-us/"/>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jevzgames.com/support/</loc>
